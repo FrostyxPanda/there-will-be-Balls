@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c5u8uhg7m0ug4"]
+
+[ext_resource type="Script" uid="uid://dub65wvec32ba" path="res://themes/beach/beach_theme.gd" id="1_w0opc"]
+[ext_resource type="Texture2D" uid="uid://s64tp7ga0itp" path="res://assets/themes/Beach/Firey Clouds/Smooth/Cloud-7.png" id="2_603ae"]
+[ext_resource type="Texture2D" uid="uid://db8n6hmoqmfmf" path="res://assets/themes/Beach/Ocean Sunset alt.png" id="2_w0opc"]
+[ext_resource type="Texture2D" uid="uid://djcqs4qm7ch7q" path="res://assets/themes/Beach/vecteezy_palm-tree-silhouette_25256600.png" id="3_w0opc"]
+[ext_resource type="Texture2D" uid="uid://dowa00fhma3d6" path="res://assets/themes/Beach/Palm_Tree_Diffuse.png" id="5_3pir3"]
+[ext_resource type="Texture2D" uid="uid://cwm35sr3j50y0" path="res://assets/themes/Beach/—Pngtree—palm tree vector illustration_7965061.png" id="5_qcbxq"]
+[ext_resource type="Texture2D" uid="uid://c48pk028sulah" path="res://assets/themes/Beach/Palm_Bark_Texture.jpg" id="6_qcbxq"]
+
+[sub_resource type="Gradient" id="Gradient_qcbxq"]
+colors = PackedColorArray(0, 0.90382373, 1, 1, 0.91627353, 0.510617, 0.33361515, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8qpvf"]
+gradient = SubResource("Gradient_qcbxq")
+width = 1080
+height = 1920
+fill_from = Vector2(0.38594493, 1)
+fill_to = Vector2(0.33124405, 0.23418804)
+
+[node name="BeachTheme" type="Node2D" unique_id=2111611892]
+script = ExtResource("1_w0opc")
+
+[node name="FullBorder" type="Line2D" parent="." unique_id=819973852]
+z_index = 10
+points = PackedVector2Array(0, 0, 1080, 0, 1080, 1920, 0, 1920, 0, -5)
+default_color = Color(0, 0, 0, 1)
+
+[node name="ThemeBackgroundColor" type="Sprite2D" parent="." unique_id=1083483031]
+z_index = -10
+position = Vector2(5.0000005, 0)
+texture = SubResource("GradientTexture2D_8qpvf")
+centered = false
+flip_v = true
+
+[node name="ArenaBackground" type="Sprite2D" parent="." unique_id=912318019]
+z_index = -6
+position = Vector2(541.5, 960.00006)
+scale = Vector2(0.8466797, 0.890625)
+texture = ExtResource("2_w0opc")
+
+[node name="DynamicBackground" type="Node2D" parent="." unique_id=1716640271]
+z_index = -5
+
+[node name="Clouds" type="Sprite2D" parent="DynamicBackground" unique_id=1843113496]
+modulate = Color(1, 1, 1, 0.7882353)
+position = Vector2(315, 637)
+texture = ExtResource("2_603ae")
+
+[node name="ForegroundDecor" type="Node2D" parent="." unique_id=167041446]
+z_index = 1
+
+[node name="PalmTree" type="Sprite2D" parent="ForegroundDecor" unique_id=317545806]
+position = Vector2(927, 1541)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_w0opc")
+
+[node name="PalmTree2" type="Sprite2D" parent="ForegroundDecor" unique_id=1618666586]
+position = Vector2(150.00006, 1484)
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("5_qcbxq")
+
+[node name="DynamicForeground" type="Node2D" parent="." unique_id=262616796]
+
+[node name="BorderOverlay" type="Node2D" parent="." unique_id=349223080]
+visible = false
+z_index = 1
+
+[node name="TopBorder" type="Sprite2D" parent="BorderOverlay" unique_id=1569434287]
+position = Vector2(516, -75.25)
+scale = Vector2(1, 0.026302079)
+
+[node name="BottomBorder" type="Sprite2D" parent="BorderOverlay" unique_id=172140631]
+position = Vector2(538, 1661.5)
+scale = Vector2(0.98046887, 0.038086057)
+texture = ExtResource("5_3pir3")
+
+[node name="LeftBorder" type="Sprite2D" parent="BorderOverlay" unique_id=1644936709]
+position = Vector2(75, 948.00006)
+scale = Vector2(0.06406249, 0.7328125)
+texture = ExtResource("6_qcbxq")
+
+[node name="RightBorder" type="Sprite2D" parent="BorderOverlay" unique_id=337645983]
+position = Vector2(1011.50006, 950)
+scale = Vector2(0.05234382, 0.72669274)
+texture = ExtResource("6_qcbxq")
+
+[node name="world guide" type="Line2D" parent="." unique_id=1094007844]
+points = PackedVector2Array(108, 276, 974, 276, 974, 1644, 108, 1644, 108, 271)
+default_color = Color(0, 0, 0, 1)

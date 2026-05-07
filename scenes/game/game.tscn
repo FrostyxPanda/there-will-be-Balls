@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dd3ltibqthlcu"]
+
+[ext_resource type="Script" uid="uid://bcape6m4rpxje" path="res://scripts/systems/game.gd" id="1_kelw5"]
+[ext_resource type="PackedScene" uid="uid://d4g566lvv1nqy" path="res://scenes/player/player.tscn" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://c8jtdmexs26vg" path="res://scenes/ball/ball.tscn" id="2_7h61r"]
+[ext_resource type="Script" uid="uid://bx4blq3iei514" path="res://scripts/systems/spawner.gd" id="3_0sr1o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0sr1o"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h61r"]
+size = Vector2(900, 40)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kelw5"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sr1o"]
+size = Vector2(40, 1400)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lfrn8"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kelw5"]
+size = Vector2(40, 1400)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5i0tg"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfrn8"]
+size = Vector2(900, 40)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_5i0tg"]
+
+[node name="Game" type="Node2D" unique_id=10860738]
+script = ExtResource("1_kelw5")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1718906559]
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1701714166 groups=["score_label"]]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_right = 132.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Score: 0"
+
+[node name="ComboLabel" type="Label" parent="UI" unique_id=2009804570 groups=["combo_label"]]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -11.5
+offset_right = 39.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.54901963)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Combo x0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="World" type="Node2D" parent="." unique_id=2000311913]
+position = Vector2(0, -130)
+
+[node name="ThemeContainer" type="Node2D" parent="World" unique_id=1137235185]
+
+[node name="Collisions" type="Node2D" parent="World" unique_id=1458930734]
+
+[node name="Floor" type="StaticBody2D" parent="World/Collisions" unique_id=34642728]
+physics_material_override = SubResource("PhysicsMaterial_0sr1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Collisions/Floor" unique_id=111245551]
+position = Vector2(540, 1660)
+shape = SubResource("RectangleShape2D_7h61r")
+
+[node name="LeftWall" type="StaticBody2D" parent="World/Collisions" unique_id=1254909897]
+physics_material_override = SubResource("PhysicsMaterial_kelw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Collisions/LeftWall" unique_id=1006200525]
+position = Vector2(90, 960)
+shape = SubResource("RectangleShape2D_0sr1o")
+
+[node name="RightWall" type="StaticBody2D" parent="World/Collisions" unique_id=1179915538]
+physics_material_override = SubResource("PhysicsMaterial_lfrn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Collisions/RightWall" unique_id=2051396244]
+position = Vector2(990, 960)
+shape = SubResource("RectangleShape2D_kelw5")
+
+[node name="Ceiling" type="StaticBody2D" parent="World/Collisions" unique_id=1071230080]
+physics_material_override = SubResource("PhysicsMaterial_5i0tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Collisions/Ceiling" unique_id=1748001518]
+position = Vector2(540, 260)
+shape = SubResource("RectangleShape2D_lfrn8")
+
+[node name="Visuals" type="Node2D" parent="World" unique_id=1027145297]
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Visuals" unique_id=32099899]
+visible = false
+modulate = Color(0.4627451, 0.4627451, 0.4627451, 1)
+position = Vector2(540, 960)
+scale = Vector2(900, 1400)
+texture = SubResource("CanvasTexture_5i0tg")
+
+[node name="Borders" type="Line2D" parent="World/Visuals" unique_id=949674692]
+points = PackedVector2Array(108, 276, 974, 276, 974, 1644, 108, 1644, 108, 271)
+default_color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="World" unique_id=55012155 instance=ExtResource("1_sul5r")]
+position = Vector2(547, 1513)
+
+[node name="Spawner" type="Node2D" parent="World" unique_id=1392626102]
+position = Vector2(0, 130)
+script = ExtResource("3_0sr1o")
+ball_scene = ExtResource("2_7h61r")
+
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=2080468913]
+position = Vector2(540, 1090)

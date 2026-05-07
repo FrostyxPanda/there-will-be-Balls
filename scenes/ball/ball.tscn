@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c8jtdmexs26vg"]
+
+[ext_resource type="Script" uid="uid://cinxmw3vgv3" path="res://scripts/ball/ball.gd" id="1_oqv3d"]
+[ext_resource type="Texture2D" uid="uid://bbk8xsacxrvwk" path="res://assets/sprites/ball/balls_collection_user - copy.png" id="2_nv6q1"]
+[ext_resource type="AudioStream" uid="uid://2q1cf4ebf28v" path="res://audio/sfx/Tag.wav" id="3_xotqv"]
+[ext_resource type="AudioStream" uid="uid://b6cxshbb7gu8r" path="res://audio/sfx/Pop Alt.wav" id="4_xotqv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oqv3d"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv6q1"]
+radius = 40.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nv6q1"]
+blend_mode = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nv6q1"]
+load_path = "res://.godot/imported/balls_collection_user - copy.png-19d1115c19bde8189316bed1f60ac486.ctex"
+
+[node name="Ball" type="RigidBody2D" unique_id=1422459001]
+disable_mode = 1
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_oqv3d")
+gravity_scale = 0.0
+script = ExtResource("1_oqv3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1015640092]
+shape = SubResource("CircleShape2D_nv6q1")
+debug_color = Color(0.85880804, 0, 0.32930443, 0.41960785)
+
+[node name="Visuals" type="Node2D" parent="." unique_id=990721521]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=314086695]
+texture = ExtResource("2_nv6q1")
+region_enabled = true
+
+[node name="Glow" type="Sprite2D" parent="Visuals" unique_id=128367539]
+visible = false
+modulate = Color(0, 1, 1, 1)
+z_index = 1
+material = SubResource("CanvasItemMaterial_nv6q1")
+scale = Vector2(1.2, 1.2)
+texture = SubResource("CompressedTexture2D_nv6q1")
+flip_v = true
+region_enabled = true
+
+[node name="TagSFX" type="AudioStreamPlayer2D" parent="." unique_id=1133197725]
+stream = ExtResource("3_xotqv")
+volume_db = -17.463
+
+[node name="PopSFX" type="AudioStreamPlayer2D" parent="." unique_id=1098553019]
+stream = ExtResource("4_xotqv")
+volume_db = -17.85
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
