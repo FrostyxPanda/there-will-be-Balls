@@ -10,7 +10,7 @@ var spawn_timer = 0.0
 
 var difficulty_timer = 0.0
 
-var max_balls = 5  
+var max_balls = 6
 
 func _process(delta):
 
@@ -24,7 +24,7 @@ func _process(delta):
 		spawn_timer = current_delay
 
 	# 🟢 Gradual speed-up (independent of spawn)
-	current_delay = max(min_delay, current_delay - delta * 0.003)
+	current_delay = max(min_delay, current_delay - delta * 0.005)
 
 	# 🟢 Increase max balls every 10 seconds
 	if difficulty_timer > 10:

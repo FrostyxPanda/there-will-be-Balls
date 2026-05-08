@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://rvnidss7n1x0"]
+
+[ext_resource type="Script" uid="uid://d4dh1lwb84mei" path="res://assets/themes/Beach/cloud.gd" id="1_w3u0h"]
+[ext_resource type="Texture2D" uid="uid://bl75y2up3xwiy" path="res://assets/themes/Beach/clouds/Cloud-43.png" id="2_gj1dn"]
+
+[node name="Cloud" type="Node2D" unique_id=1059621252]
+script = ExtResource("1_w3u0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100069208]
+texture = ExtResource("2_gj1dn")

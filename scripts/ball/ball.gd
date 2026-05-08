@@ -79,7 +79,7 @@ func setup_movement():
 	var horizontal_dir = 1 if randf() < 0.5 else -1
 
 	# Controlled angle range (tighter = more consistent feel)
-	var angle_deg = randf_range(35, 45)
+	var angle_deg = randf_range(30, 50)
 
 	# Apply direction using rotation (cleaner + more reliable)
 	var direction = Vector2.RIGHT.rotated(deg_to_rad(angle_deg))

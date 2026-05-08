@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sn3f3q6v5bc0"
-path="res://.godot/imported/Cloud-27.png-b44347f38eaaa437eae6c4977884118e.ctex"
+uid="uid://cgrqrjmocntyl"
+path="res://.godot/imported/Cloud-10.png-ee72860fad65b9535a892dff2cfbbebe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/themes/Beach/Firey Clouds/Smooth/Cloud-27.png"
-dest_files=["res://.godot/imported/Cloud-27.png-b44347f38eaaa437eae6c4977884118e.ctex"]
+source_file="res://assets/themes/Beach/clouds/Cloud-10.png"
+dest_files=["res://.godot/imported/Cloud-10.png-ee72860fad65b9535a892dff2cfbbebe.ctex"]
 
 [params]
 
