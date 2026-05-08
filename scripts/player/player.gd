@@ -327,12 +327,28 @@ func handle_jump():
 		velocity.y *= JUMP_CUT_MULTIPLIER
 
 func handle_movement(delta):
+
 	var direction = Input.get_axis("move_left", "move_right")
 
+	var joystick = get_tree().get_first_node_in_group("joystick")
+
+	if joystick:
+		direction += joystick.output.x
+
+	direction = clamp(direction, -1, 1)
+
 	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL * delta)
+		velocity.x = move_toward(
+			velocity.x,
+			direction * SPEED,
+			ACCEL * delta
+		)
 	else:
-		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		velocity.x = move_toward(
+			velocity.x,
+			0,
+			FRICTION * delta
+		)
 
 var current_anim = ""
 

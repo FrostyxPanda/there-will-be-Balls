@@ -3,7 +3,7 @@ extends Node
 var coins = 0
 
 # 🎱 BALLS
-var unlock_all = true
+var unlock_all = false
 var total_ball_count = 40
 
 var unlocked_balls = [0]

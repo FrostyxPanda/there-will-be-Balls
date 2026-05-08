@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bqlu6y4sj0fpb"]
+
+[ext_resource type="Script" uid="uid://d4m0fsl0vwpfm" path="res://scripts/systems/virtual_joystick.gd" id="1_pakk4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xi2ug"]
+size = Vector2(240, 160)
+
+[sub_resource type="Gradient" id="Gradient_ih8wq"]
+offsets = PackedFloat32Array(0.6081731, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_whvie"]
+gradient = SubResource("Gradient_ih8wq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="VirtualJoystick" type="Control" unique_id=2000132785]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pakk4")
+
+[node name="Base" type="TextureRect" parent="." unique_id=808173623]
+modulate = Color(1, 1, 1, 0.28100002)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_xi2ug")
+stretch_mode = 3
+
+[node name="Knob" type="TextureRect" parent="." unique_id=1668558640]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture2D_whvie")

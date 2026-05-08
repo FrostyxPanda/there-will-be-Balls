@@ -3,7 +3,36 @@
 [ext_resource type="Script" uid="uid://bcape6m4rpxje" path="res://scripts/systems/game.gd" id="1_kelw5"]
 [ext_resource type="PackedScene" uid="uid://d4g566lvv1nqy" path="res://scenes/player/player.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://c8jtdmexs26vg" path="res://scenes/ball/ball.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://bqlu6y4sj0fpb" path="res://scenes/ui/virtual_joystick.tscn" id="2_lfrn8"]
 [ext_resource type="Script" uid="uid://bx4blq3iei514" path="res://scripts/systems/spawner.gd" id="3_0sr1o"]
+
+[sub_resource type="Gradient" id="Gradient_kelw5"]
+offsets = PackedFloat32Array(0.62259614, 0.7668269)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfrn8"]
+gradient = SubResource("Gradient_kelw5")
+width = 160
+height = 160
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5i0tg"]
+radius = 80.0
+
+[sub_resource type="Gradient" id="Gradient_bdhmt"]
+offsets = PackedFloat32Array(0.5504808, 0.74278843)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_87uf6"]
+gradient = SubResource("Gradient_bdhmt")
+width = 160
+height = 160
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2a8rs"]
+radius = 80.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0sr1o"]
 friction = 0.0
@@ -73,6 +102,30 @@ theme_override_font_sizes/font_size = 60
 text = "Combo x0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Control" type="Control" parent="UI" unique_id=708324832]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jump" type="TouchScreenButton" parent="UI/Control" unique_id=1632490602]
+position = Vector2(627, 1532)
+texture_normal = SubResource("GradientTexture2D_lfrn8")
+shape = SubResource("CircleShape2D_5i0tg")
+action = "jump"
+
+[node name="Dash" type="TouchScreenButton" parent="UI/Control" unique_id=1370845928]
+position = Vector2(789, 1609)
+texture_normal = SubResource("GradientTexture2D_87uf6")
+shape = SubResource("CircleShape2D_2a8rs")
+action = "dash"
+
+[node name="VirtualJoystick" parent="UI/Control" unique_id=2000132785 instance=ExtResource("2_lfrn8")]
+layout_mode = 1
+offset_top = 1600.0
+offset_right = 420.0
+offset_bottom = 1880.0
 
 [node name="World" type="Node2D" parent="." unique_id=2000311913]
 position = Vector2(0, -130)
