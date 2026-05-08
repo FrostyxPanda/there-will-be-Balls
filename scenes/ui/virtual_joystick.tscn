@@ -3,14 +3,16 @@
 [ext_resource type="Script" uid="uid://d4m0fsl0vwpfm" path="res://scripts/systems/virtual_joystick.gd" id="1_pakk4"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xi2ug"]
-size = Vector2(240, 160)
+size = Vector2(80, 80)
 
 [sub_resource type="Gradient" id="Gradient_ih8wq"]
-offsets = PackedFloat32Array(0.6081731, 1)
+offsets = PackedFloat32Array(0.65625, 0.68509614)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_whvie"]
 gradient = SubResource("Gradient_ih8wq")
+width = 150
+height = 150
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -24,7 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_pakk4")
 
 [node name="Base" type="TextureRect" parent="." unique_id=808173623]
-modulate = Color(1, 1, 1, 0.28100002)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
