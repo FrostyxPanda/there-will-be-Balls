@@ -256,7 +256,7 @@ func start_dash():
 
 	# 🚫 NO MOVEMENT → cancel dash completely
 	if abs(input_dir) < 0.2:
-		return
+		return 
 
 	# 🔊 play sound ONLY on successful dash
 	dash_sfx.pitch_scale = randf_range(0.95, 1.05)
