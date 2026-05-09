@@ -96,6 +96,7 @@ scale = Vector2(0.05234382, 0.72669274)
 texture = ExtResource("6_qcbxq")
 
 [node name="world guide" type="Line2D" parent="." unique_id=1094007844]
+z_index = 5
 points = PackedVector2Array(108, 276, 974, 276, 974, 1644, 108, 1644, 108, 271)
 default_color = Color(0, 0, 0, 1)
 

@@ -208,3 +208,11 @@ ball_scene = ExtResource("2_7h61r")
 
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=2080468913]
 position = Vector2(540, 1090)
+
+[node name="Audio" type="Node2D" parent="." unique_id=1062445560]
+
+[node name="AmbientPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=723806516]
+volume_db = -8.21
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="Audio" unique_id=1234441555]
+volume_db = -0.912

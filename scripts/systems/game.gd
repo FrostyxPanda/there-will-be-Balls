@@ -1,7 +1,15 @@
 extends Node2D
 
 func _ready():
-	load_theme("res://themes/beach/beach_theme.tscn")
+
+	var theme_name = GameData.selected_theme
+
+	var path = "res://themes/%s/%s_theme.tscn" % [
+		theme_name,
+		theme_name
+	]
+
+	load_theme(path)
 
 func load_theme(path):
 
@@ -12,19 +20,25 @@ func load_theme(path):
 
 	$World/ThemeContainer.add_child(theme)
 
+	apply_theme(theme)
+
 
 func apply_theme(theme: ThemeData):
 
 	# 🎨 Borders
 	$World/Visuals/Borders.default_color = theme.border_color
 
-	# 🎵 Ambient audio (SAFE CHECK)
+	# 🎵 Music
+	if theme.music_track != null:
+
+		$Audio/MusicPlayer.stream = theme.music_track
+		$Audio/MusicPlayer.play()
+
+	# 🌊 Ambient
 	if theme.ambient_sound != null:
-		if $World.has_node("AmbientSFX"):
-			var player = $World/AmbientSFX
-			player.stream = theme.ambient_sound
-			player.volume_db = theme.ambient_volume
-			player.play()
+
+		$Audio/AmbientPlayer.stream = theme.ambient_sound
+		$Audio/AmbientPlayer.play()
 
 var current_theme_path = ""
 

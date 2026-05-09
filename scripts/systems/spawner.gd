@@ -2,8 +2,8 @@ extends Node2D
 
 @export var ball_scene: PackedScene
 
-var base_delay = 1.8
-var min_delay = 0.6
+var base_delay = 2.0
+var min_delay = 0.8
 
 var current_delay = base_delay
 var spawn_timer = 0.0
@@ -24,7 +24,7 @@ func _process(delta):
 		spawn_timer = current_delay
 
 	# 🟢 Gradual speed-up (independent of spawn)
-	current_delay = max(min_delay, current_delay - delta * 0.005)
+	current_delay = max(min_delay, current_delay - delta * 0.00)
 
 	# 🟢 Increase max balls every 10 seconds
 	if difficulty_timer > 10:
@@ -47,7 +47,7 @@ func spawn_pattern():
 		spawn()
 
 	# ⚡ DOUBLE (rare)
-	elif roll < 0.80:
+	elif roll < 0.85:
 		spawn()
 		await get_tree().create_timer(0.25).timeout
 		spawn()
