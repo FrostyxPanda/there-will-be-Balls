@@ -37,6 +37,7 @@ texture = SubResource("PlaceholderTexture2D_xi2ug")
 stretch_mode = 3
 
 [node name="Knob" type="TextureRect" parent="." unique_id=1668558640]
+modulate = Color(1, 1, 1, 0.34300002)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

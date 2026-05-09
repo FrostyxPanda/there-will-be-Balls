@@ -249,19 +249,20 @@ func _physics_process(delta):
 func start_dash():
 
 	var input_dir = Input.get_axis("move_left", "move_right")
-	dash_sfx.pitch_scale = randf_range(0.95, 1.05)
-	dash_sfx.play()
 
 	# fallback to current movement
 	if input_dir == 0:
 		input_dir = sign(velocity.x)
 
 	# 🚫 NO MOVEMENT → cancel dash completely
-	if input_dir == 0:
+	if abs(input_dir) < 0.2:
 		return
-		
 
-	# ✅ only now we play dust
+	# 🔊 play sound ONLY on successful dash
+	dash_sfx.pitch_scale = randf_range(0.95, 1.05)
+	dash_sfx.play()
+
+	# 💨 dash dust
 	play_dust(dash_dust)
 	dash_dust.flip_h = input_dir < 0
 	dash_dust.speed_scale = 1.5

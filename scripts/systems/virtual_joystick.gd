@@ -3,7 +3,7 @@ extends Control
 @onready var base = $Base
 @onready var knob = $Knob
 
-var max_distance = 80.0
+var max_distance = 50.0
 var output = Vector2.ZERO
 
 var active = false
@@ -58,3 +58,6 @@ func _input(event):
 			knob.global_position = center + offset - knob.size / 2
 
 			output = offset / max_distance
+			
+			if output.length() < 0.15:
+				output = Vector2.ZERO

@@ -115,36 +115,40 @@ texture_normal = SubResource("GradientTexture2D_lfrn8")
 shape = SubResource("CircleShape2D_5i0tg")
 action = "jump"
 
+[node name="Label" type="Label" parent="UI/Control/Jump" unique_id=339831284]
+offset_left = 30.0
+offset_top = 48.0
+offset_right = 72.0
+offset_bottom = 71.0
+scale = Vector2(2.5, 2.5)
+text = "JUMP"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="Dash" type="TouchScreenButton" parent="UI/Control" unique_id=1370845928]
 position = Vector2(789, 1609)
 texture_normal = SubResource("GradientTexture2D_87uf6")
 shape = SubResource("CircleShape2D_2a8rs")
 action = "dash"
 
+[node name="Label" type="Label" parent="UI/Control/Dash" unique_id=290192424]
+modulate = Color(0, 0, 0, 1)
+offset_left = 28.0
+offset_top = 50.0
+offset_right = 72.0
+offset_bottom = 73.0
+scale = Vector2(2.5, 2.5)
+text = "DASH"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
 [node name="VirtualJoystick" parent="UI/Control" unique_id=2000132785 instance=ExtResource("2_lfrn8")]
 layout_mode = 1
 offset_top = 1600.0
 offset_right = 420.0
 offset_bottom = 1880.0
-
-[node name="JumpText" type="TextEdit" parent="UI/Control" unique_id=2059202002]
-layout_mode = 0
-offset_left = 656.0
-offset_top = 1569.0
-offset_right = 708.5
-offset_bottom = 1608.0
-scale = Vector2(2, 2)
-text = "JUMP"
-
-[node name="DashText" type="TextEdit" parent="UI/Control" unique_id=2054135627]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 816.0
-offset_top = 1647.0
-offset_right = 868.5
-offset_bottom = 1686.0
-scale = Vector2(2, 2)
-text = "DASH"
 
 [node name="World" type="Node2D" parent="." unique_id=2000311913]
 position = Vector2(0, -130)
