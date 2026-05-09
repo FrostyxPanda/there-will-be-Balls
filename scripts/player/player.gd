@@ -23,6 +23,9 @@ var score = 0
 var was_on_floor = false
 var previous_y = 0.0
 var combo_cleared = false
+var survival_time = 0.0
+var total_combos = 0
+var highest_combo = 0
 
 # =========================
 # DASH
@@ -53,6 +56,7 @@ var jumps_left = MAX_JUMPS
 
 var has_landed = false
 var is_dead = false
+
 
 # =========================
 # READY
@@ -167,6 +171,9 @@ func shake_screen(intensity):
 func _physics_process(delta):
 	if is_dead:
 		return
+		
+	if not is_dead:
+		survival_time += delta
 
 	previous_y = global_position.y
 
@@ -221,6 +228,8 @@ func _physics_process(delta):
 
 			if combo > 0:
 				on_combo_cleared(combo)
+				total_combos += 1
+				highest_combo = max(highest_combo, combo)
 
 			await get_tree().create_timer(0.05).timeout
 			clear_tagged()
@@ -446,11 +455,12 @@ func _on_hitbox_body_entered(body):
 		die()
 
 func die():
+
 	if is_dead:
 		return
 
 	is_dead = true
-	
+
 	death_sfx.play()
 	death_sfx2.play()
 
@@ -462,6 +472,96 @@ func die():
 	await get_tree().create_timer(0.6).timeout
 
 	Engine.time_scale = 0.2
+
 	await get_tree().create_timer(0.3).timeout
 
+	game_over()
+
 	get_tree().paused = true
+	
+func game_over():
+
+	is_dead = true
+
+	var score_coins = floor(score / 5)
+	var time_coins = floor(survival_time / 10)
+	var combo_coins = floor(total_combos / 5)
+	var highest_combo_coins = highest_combo
+
+	var total_reward = (
+		score_coins +
+		time_coins +
+		combo_coins +
+		highest_combo_coins
+	)
+
+	GameData.coins += total_reward
+
+	show_game_over_screen(
+		score,
+		survival_time,
+		total_combos,
+		highest_combo,
+		total_reward
+	)
+
+func show_game_over_screen(
+	final_score,
+	time_survived,
+	combo_count,
+	best_combo,
+	coins_earned
+):
+
+	var screen = get_tree().get_first_node_in_group("game_over")
+
+	if screen == null:
+		print("GameOverScreen not found")
+		return
+
+	screen.visible = true
+
+	# 🪙 reward calculations
+	var score_coins = floor(final_score / 5)
+	var time_coins = floor(time_survived / 10)
+	var combo_coins = floor(combo_count / 5)
+	var highest_combo_coins = best_combo
+
+	# 📊 main stats
+	screen.get_node(
+		"Panel/VBoxContainer/ScoreRow/ScoreLabel"
+	).text = "Score: " + str(final_score)
+
+	screen.get_node(
+		"Panel/VBoxContainer/TimeRow/TimeLabel"
+	).text = "Time: " + str(int(time_survived)) + "s"
+
+	screen.get_node(
+		"Panel/VBoxContainer/ComboRow/ComboLabel"
+	).text = "Combos: " + str(combo_count)
+
+	screen.get_node(
+		"Panel/VBoxContainer/HighestComboRow/HighestComboLabel"
+	).text = "Highest Combo: " + str(best_combo)
+
+	# 🪙 reward labels
+	screen.get_node(
+		"Panel/VBoxContainer/ScoreRow/ScoreRewardLabel"
+	).text = "+" + str(score_coins)
+
+	screen.get_node(
+		"Panel/VBoxContainer/TimeRow/TimeRewardLabel"
+	).text = "+" + str(int(time_coins))
+
+	screen.get_node(
+		"Panel/VBoxContainer/ComboRow/ComboRewardLabel"
+	).text = "+" + str(combo_coins)
+
+	screen.get_node(
+		"Panel/VBoxContainer/HighestComboRow/HighestComboRewardLabel"
+	).text = "+" + str(highest_combo_coins)
+
+	# 💰 total reward
+	screen.get_node(
+		"Panel/VBoxContainer/CoinsLabel"
+	).text = "Coins Earned: +" + str(coins_earned)

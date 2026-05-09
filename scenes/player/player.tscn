@@ -446,7 +446,7 @@ volume_db = -2.329
 
 [node name="DashSFX" type="AudioStreamPlayer2D" parent="." unique_id=1793094094]
 stream = ExtResource("9_je7p5")
-volume_db = -12.202
+volume_db = -4.053
 
 [node name="LandSFX" type="AudioStreamPlayer2D" parent="." unique_id=1351759436]
 stream = ExtResource("10_gx1jg")

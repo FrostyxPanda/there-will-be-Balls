@@ -58,6 +58,6 @@ func _input(event):
 			knob.global_position = center + offset - knob.size / 2
 
 			output = offset / max_distance
-			
+
 			if output.length() < 0.15:
 				output = Vector2.ZERO
