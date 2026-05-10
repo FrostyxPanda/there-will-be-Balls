@@ -39,28 +39,7 @@ func _process(delta):
 	# ☁️ movement
 	position.x += speed * direction * delta
 
-	# 🌫️ smooth edge fade
-	var fade_speed = 0.15
-
-	var left_fade = inverse_lerp(
-		arena_left - 100,
-		arena_left + 400,
-		global_position.x
-	)
-
-	var right_fade = inverse_lerp(
-		arena_right + 100,
-		arena_right - 400,
-		global_position.x
-	)
-
-	var edge_fade = min(left_fade, right_fade)
-
-	modulate.a = move_toward(
-		modulate.a,
-		target_alpha * edge_fade,
-		fade_speed * delta
-	)
+	modulate.a = 1.0
 
 	# 🗑️ cleanup
 	if global_position.x < arena_left - 400:

@@ -41,10 +41,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_blend = true
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0sr1o"]
 friction = 0.0
@@ -80,6 +80,7 @@ size = Vector2(900, 40)
 script = ExtResource("1_kelw5")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1718906559]
+process_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="UI" unique_id=1701714166 groups=["score_label"]]
 custom_minimum_size = Vector2(0, 40)
@@ -87,8 +88,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -132.0
+offset_top = 20.0
 offset_right = 132.0
-offset_bottom = 96.0
+offset_bottom = 116.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -173,7 +175,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="UI/GameOverScreen" unique_id=205567066]
-custom_minimum_size = Vector2(500, 700)
+custom_minimum_size = Vector2(800, 1000)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -200,7 +202,8 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="UI/GameOverScreen/Panel/VBoxContainer" unique_id=2112373444]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
 horizontal_alignment = 1
 
 [node name="ScoreRow" type="HBoxContainer" parent="UI/GameOverScreen/Panel/VBoxContainer" unique_id=1019575680]
@@ -292,13 +295,16 @@ theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="UI/GameOverScreen/Panel/VBoxContainer" unique_id=1445043360]
+process_mode = 2
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 80
 text = "RETRY"
 
 [node name="MenuButton" type="Button" parent="UI/GameOverScreen/Panel/VBoxContainer" unique_id=924763227]
+process_mode = 2
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "MAIN MENU"
 
 [node name="World" type="Node2D" parent="." unique_id=2000311913]

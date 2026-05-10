@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bl75y2up3xwiy" path="res://assets/themes/Beach/clouds/Cloud-43.png" id="2_gj1dn"]
 
 [node name="Cloud" type="Node2D" unique_id=1059621252]
+z_index = 10
 script = ExtResource("1_w3u0h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=100069208]
+z_index = 10
 texture = ExtResource("2_gj1dn")
