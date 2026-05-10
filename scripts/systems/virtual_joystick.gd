@@ -61,3 +61,13 @@ func _input(event):
 
 			if output.length() < 0.15:
 				output = Vector2.ZERO
+
+func reset():
+
+	active = false
+	touch_index = -1
+
+	output = Vector2.ZERO
+
+	base.visible = false
+	knob.visible = false

@@ -1,0 +1,205 @@
+[gd_scene format=3 uid="uid://bi1c7ec47rqfb"]
+
+[ext_resource type="Script" uid="uid://ck1ugv1qwuqha" path="res://scripts/systems/game_over.gd" id="1_hfhxj"]
+
+[sub_resource type="Gradient" id="Gradient_hfhxj"]
+colors = PackedColorArray(0, 0.90382373, 1, 1, 0.91627353, 0.510617, 0.33361515, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_er7gy"]
+gradient = SubResource("Gradient_hfhxj")
+width = 1080
+height = 1920
+fill_from = Vector2(0.38594493, 1)
+fill_to = Vector2(0.33124405, 0.23418804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfrn8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="GameOver" type="Control" unique_id=1443752997 groups=["game_over"]]
+top_level = true
+z_index = 900
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hfhxj")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1201858923]
+position = Vector2(540, 960)
+texture = SubResource("GradientTexture2D_er7gy")
+
+[node name="DarkOverlay" type="ColorRect" parent="." unique_id=1664068038]
+modulate = Color(0, 0, 0, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=968830968]
+process_mode = 2
+self_modulate = Color(1, 1, 1, 0.85)
+custom_minimum_size = Vector2(700, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lfrn8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=481083967]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer" unique_id=718612073]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ScoreRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1109319994]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer/ScoreRow" unique_id=1542302856]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/ScoreRow" unique_id=538574086]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ScoreRewardLabel" type="Label" parent="Panel/VBoxContainer/ScoreRow" unique_id=1289384353]
+layout_mode = 2
+theme_override_colors/font_color = Color(18.892157, 18.892157, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+
+[node name="TimeRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=470737431]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Panel/VBoxContainer/TimeRow" unique_id=1367814117]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/TimeRow" unique_id=1138229506]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TimeRewardLabel" type="Label" parent="Panel/VBoxContainer/TimeRow" unique_id=551631873]
+layout_mode = 2
+theme_override_colors/font_color = Color(18.892157, 18.892157, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+
+[node name="ComboRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1748200242]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="ComboLabel" type="Label" parent="Panel/VBoxContainer/ComboRow" unique_id=2069215622]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/ComboRow" unique_id=98610128]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ComboRewardLabel" type="Label" parent="Panel/VBoxContainer/ComboRow" unique_id=817169872]
+layout_mode = 2
+theme_override_colors/font_color = Color(18.892157, 18.892157, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+
+[node name="HighestComboRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=177683134]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="HighestComboLabel" type="Label" parent="Panel/VBoxContainer/HighestComboRow" unique_id=1515756316]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer/HighestComboRow" unique_id=1926882156]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HighestComboRewardLabel" type="Label" parent="Panel/VBoxContainer/HighestComboRow" unique_id=657325850]
+layout_mode = 2
+theme_override_colors/font_color = Color(18.892157, 18.892157, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBoxContainer" unique_id=384948437]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9275334, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="." unique_id=637751357]
+top_level = true
+z_index = 1000
+layout_mode = 0
+offset_left = 418.0
+offset_top = 1318.0
+offset_right = 665.0
+offset_bottom = 1447.0
+theme_override_font_sizes/font_size = 80
+text = "RETRY"
+
+[node name="MenuButton" type="Button" parent="." unique_id=230765552]
+top_level = true
+z_index = 1000
+layout_mode = 0
+offset_left = 431.0
+offset_top = 1227.0
+offset_right = 657.0
+offset_bottom = 1290.0
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

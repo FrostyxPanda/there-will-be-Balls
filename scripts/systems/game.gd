@@ -38,6 +38,9 @@ func apply_theme(theme: ThemeData):
 	# 🎨 Borders
 	$World/Visuals/Borders.default_color = theme.border_color
 
+	# 🌈 Background color for menus/game over
+	GameData.theme_background_color = theme.background_color
+
 	# 🎵 Music
 	if theme.music_track != null:
 
@@ -63,9 +66,9 @@ func switch_theme(path):
 
 func _on_retry_button_pressed():
 
-	Engine.time_scale = 1.0
+	print("RETRY WORKS")
 
-	get_tree().paused = false
+	Engine.time_scale = 1.0
 
 	get_tree().reload_current_scene()
 

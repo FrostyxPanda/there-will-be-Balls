@@ -2,6 +2,8 @@ extends Node
 
 var coins = 0
 
+var theme_background_color = Color.WHITE
+
 # 🎱 BALLS
 var unlock_all = false
 var total_ball_count = 40
@@ -15,6 +17,24 @@ var selected_theme = "beach"
 # 🎲 BALL SELECTION
 # -1 = random mode
 var selected_ball = -1
+
+# =========================
+# GAME OVER DATA
+# =========================
+
+var last_score = 0
+var last_survival_time = 0.0
+var last_total_combos = 0
+var last_highest_combo = 0
+
+# 🪙 reward breakdown
+var last_score_coins = 0
+var last_time_coins = 0
+var last_combo_coins = 0
+var last_highest_combo_coins = 0
+
+# 💰 total reward
+var last_total_reward = 0
 
 
 func get_unlocked_balls():
