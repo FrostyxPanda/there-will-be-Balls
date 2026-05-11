@@ -488,7 +488,7 @@ func game_over():
 
 	# 🪙 reward calculations
 	var score_coins = floor(score / 5)
-	var time_coins = floor(survival_time / 10)
+	var time_coins = int(floor(survival_time / 10))
 	var combo_coins = floor(total_combos / 5)
 	var highest_combo_coins = highest_combo
 

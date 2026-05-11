@@ -24,6 +24,28 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="Gradient" id="Gradient_5x25y"]
+offsets = PackedFloat32Array(0.6754808, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b3plk"]
+gradient = SubResource("Gradient_5x25y")
+width = 500
+height = 150
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_e80lq"]
+offsets = PackedFloat32Array(0.64663464, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jhs4t"]
+gradient = SubResource("Gradient_e80lq")
+width = 500
+height = 75
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
 [node name="GameOver" type="Control" unique_id=1443752997 groups=["game_over"]]
 top_level = true
 z_index = 900
@@ -48,6 +70,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=718612073]
+z_index = 2
+layout_mode = 0
+offset_left = 190.0
+offset_top = 600.0
+offset_right = 890.0
+offset_bottom = 710.0
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="Panel" type="Panel" parent="." unique_id=968830968]
 process_mode = 2
@@ -80,13 +115,6 @@ mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer" unique_id=718612073]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Game Over"
-horizontal_alignment = 1
-uppercase = true
-
 [node name="ScoreRow" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1109319994]
 layout_mode = 2
 mouse_filter = 2
@@ -94,7 +122,7 @@ alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer/ScoreRow" unique_id=1542302856]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 
 [node name="Spacer" type="Control" parent="Panel/VBoxContainer/ScoreRow" unique_id=538574086]
 layout_mode = 2
@@ -115,7 +143,7 @@ alignment = 1
 
 [node name="TimeLabel" type="Label" parent="Panel/VBoxContainer/TimeRow" unique_id=1367814117]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 
 [node name="Spacer" type="Control" parent="Panel/VBoxContainer/TimeRow" unique_id=1138229506]
 layout_mode = 2
@@ -136,7 +164,7 @@ alignment = 1
 
 [node name="ComboLabel" type="Label" parent="Panel/VBoxContainer/ComboRow" unique_id=2069215622]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 
 [node name="Spacer" type="Control" parent="Panel/VBoxContainer/ComboRow" unique_id=98610128]
 layout_mode = 2
@@ -157,7 +185,7 @@ alignment = 1
 
 [node name="HighestComboLabel" type="Label" parent="Panel/VBoxContainer/HighestComboRow" unique_id=1515756316]
 layout_mode = 2
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 42
 
 [node name="Spacer" type="Control" parent="Panel/VBoxContainer/HighestComboRow" unique_id=1926882156]
 layout_mode = 2
@@ -176,30 +204,90 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9275334, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 46
 horizontal_alignment = 1
 
-[node name="RetryButton" type="Button" parent="." unique_id=637751357]
+[node name="RetryButton" type="Button" parent="." unique_id=170165818]
+self_modulate = Color(1, 1, 1, 0.41900003)
 top_level = true
 z_index = 1000
-layout_mode = 0
-offset_left = 418.0
-offset_top = 1318.0
-offset_right = 665.0
-offset_bottom = 1447.0
-theme_override_font_sizes/font_size = 80
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 320.0
+offset_right = 250.0
+offset_bottom = 470.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="RetryButton" unique_id=1972083408]
+z_index = -1
+texture = SubResource("GradientTexture2D_b3plk")
+centered = false
+
+[node name="Label" type="Label" parent="RetryButton" unique_id=380696021]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 100
 text = "RETRY"
 
-[node name="MenuButton" type="Button" parent="." unique_id=230765552]
+[node name="MenuButton" type="Button" parent="." unique_id=1878982964]
+self_modulate = Color(1, 1, 1, 0.41900003)
 top_level = true
 z_index = 1000
-layout_mode = 0
-offset_left = 431.0
-offset_top = 1227.0
-offset_right = 657.0
-offset_bottom = 1290.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 220.0
+offset_right = 250.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuButton" unique_id=256462693]
+z_index = -1
+texture = SubResource("GradientTexture2D_jhs4t")
+centered = false
+
+[node name="Label" type="Label" parent="MenuButton" unique_id=305052424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -11.5
+offset_right = 48.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
-text = "Main Menu"
+text = "MAIN MENU"
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

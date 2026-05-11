@@ -64,7 +64,7 @@ func _ready():
 	# =========================
 
 	$Panel/VBoxContainer/CoinsLabel.text = (
-		"Coins Earned: +" +
+		"Coins Earned: " +
 		str(GameData.last_total_reward)
 	)
 
