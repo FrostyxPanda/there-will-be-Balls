@@ -31,19 +31,21 @@ script = ExtResource("1_w0opc")
 
 [node name="FullBorder" type="Line2D" parent="." unique_id=819973852]
 z_index = 10
-points = PackedVector2Array(0, 0, 1080, 0, 1080, 1920, 0, 1920, 0, -5)
+position = Vector2(0, 1.1259651)
+scale = Vector2(1, 1.0750643)
+points = PackedVector2Array(0, 0, 1080, 0, 1080, 1920, 534.4563, 1920, 0, 1920, 0, -5)
 default_color = Color(0, 0, 0, 1)
 
 [node name="ThemeBackgroundColor" type="Sprite2D" parent="." unique_id=1083483031]
 z_index = -10
 position = Vector2(5.0000005, 0)
+scale = Vector2(1, 1.071875)
 texture = SubResource("GradientTexture2D_8qpvf")
 centered = false
 flip_v = true
 
 [node name="ArenaBackground" type="Sprite2D" parent="." unique_id=912318019]
-z_index = -6
-position = Vector2(541.5, 960.00006)
+position = Vector2(540, 960)
 scale = Vector2(0.8466797, 0.890625)
 texture = ExtResource("2_w0opc")
 
