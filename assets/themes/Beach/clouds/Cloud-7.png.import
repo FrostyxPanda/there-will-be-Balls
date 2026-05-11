@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Cloud-7.png-4a5fdcf42dafe8a05788b074d33f9d5e.
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

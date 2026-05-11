@@ -3,11 +3,18 @@
 [ext_resource type="Script" uid="uid://dub65wvec32ba" path="res://themes/beach/beach_theme.gd" id="1_w0opc"]
 [ext_resource type="Texture2D" uid="uid://db8n6hmoqmfmf" path="res://assets/themes/Beach/Ocean Sunset alt.png" id="2_w0opc"]
 [ext_resource type="Texture2D" uid="uid://djcqs4qm7ch7q" path="res://assets/themes/Beach/vecteezy_palm-tree-silhouette_25256600.png" id="3_w0opc"]
-[ext_resource type="Texture2D" uid="uid://dowa00fhma3d6" path="res://assets/themes/Beach/Palm_Tree_Diffuse.png" id="5_3pir3"]
+[ext_resource type="Texture2D" uid="uid://holt6uncngi1" path="res://assets/themes/Beach/clouds/Cloud-2.png" id="5_mcfic"]
 [ext_resource type="Texture2D" uid="uid://cwm35sr3j50y0" path="res://assets/themes/Beach/—Pngtree—palm tree vector illustration_7965061.png" id="5_qcbxq"]
-[ext_resource type="Texture2D" uid="uid://c48pk028sulah" path="res://assets/themes/Beach/Palm_Bark_Texture.jpg" id="6_qcbxq"]
-[ext_resource type="Script" uid="uid://debfvmew45tkd" path="res://assets/themes/Beach/cloud_spawner.gd" id="7_8qpvf"]
-[ext_resource type="PackedScene" uid="uid://rvnidss7n1x0" path="res://assets/themes/Beach/cloud.tscn" id="7_qcbxq"]
+[ext_resource type="Script" uid="uid://dfjfde3o1oquv" path="res://themes/beach/cloud_loop.gd" id="6_e33m5"]
+[ext_resource type="Texture2D" uid="uid://cmxrti3442sch" path="res://assets/themes/Beach/clouds/Cloud-5.png" id="7_uxbbn"]
+[ext_resource type="Texture2D" uid="uid://s64tp7ga0itp" path="res://assets/themes/Beach/clouds/Cloud-7.png" id="8_bwt1l"]
+[ext_resource type="Texture2D" uid="uid://cgrqrjmocntyl" path="res://assets/themes/Beach/clouds/Cloud-10.png" id="9_wnt3b"]
+[ext_resource type="Texture2D" uid="uid://d2xypm0li0m60" path="res://assets/themes/Beach/clouds/Cloud-21.png" id="10_8i7qi"]
+[ext_resource type="Texture2D" uid="uid://d0cddwhc80fqj" path="res://assets/themes/Beach/clouds/Cloud-23.png" id="11_2b7fn"]
+[ext_resource type="Texture2D" uid="uid://cj14ytb1bwob1" path="res://assets/themes/Beach/clouds/Cloud-25.png" id="12_s1yj6"]
+[ext_resource type="Texture2D" uid="uid://sn3f3q6v5bc0" path="res://assets/themes/Beach/clouds/Cloud-27.png" id="13_kttcn"]
+[ext_resource type="Texture2D" uid="uid://wcaj2m3wxnq2" path="res://assets/themes/Beach/clouds/Cloud-31.png" id="14_nm3vm"]
+[ext_resource type="Texture2D" uid="uid://bl75y2up3xwiy" path="res://assets/themes/Beach/clouds/Cloud-43.png" id="15_8b64a"]
 
 [sub_resource type="Gradient" id="Gradient_qcbxq"]
 colors = PackedColorArray(0, 0.90382373, 1, 1, 0.91627353, 0.510617, 0.33361515, 1)
@@ -40,13 +47,6 @@ position = Vector2(541.5, 960.00006)
 scale = Vector2(0.8466797, 0.890625)
 texture = ExtResource("2_w0opc")
 
-[node name="DynamicBackground" type="Node2D" parent="." unique_id=1716640271]
-z_index = -5
-
-[node name="Clouds" type="Sprite2D" parent="DynamicBackground" unique_id=1843113496]
-modulate = Color(1, 1, 1, 0.7882353)
-position = Vector2(315, 637)
-
 [node name="ForegroundDecor" type="Node2D" parent="." unique_id=167041446]
 z_index = 1
 
@@ -63,43 +63,87 @@ texture = ExtResource("5_qcbxq")
 [node name="DynamicForeground" type="Node2D" parent="." unique_id=262616796]
 z_index = 2
 
-[node name="CloudsBack" type="Node2D" parent="DynamicForeground" unique_id=1635341832]
-z_index = -4
+[node name="Cloud1" type="Sprite2D" parent="DynamicForeground" unique_id=127020941]
+texture = ExtResource("5_mcfic")
+script = ExtResource("6_e33m5")
 
-[node name="CloudsMid" type="Node2D" parent="DynamicForeground" unique_id=449824263]
-z_index = -3
+[node name="Cloud2" type="Sprite2D" parent="DynamicForeground" unique_id=607407265]
+texture = ExtResource("7_uxbbn")
+script = ExtResource("6_e33m5")
 
-[node name="CloudsFront" type="Node2D" parent="DynamicForeground" unique_id=2053762199]
-z_index = -2
+[node name="Cloud3" type="Sprite2D" parent="DynamicForeground" unique_id=1214747721]
+texture = ExtResource("8_bwt1l")
+script = ExtResource("6_e33m5")
 
-[node name="BorderOverlay" type="Node2D" parent="." unique_id=349223080]
-visible = false
-z_index = 1
+[node name="Cloud4" type="Sprite2D" parent="DynamicForeground" unique_id=793297723]
+texture = ExtResource("9_wnt3b")
+script = ExtResource("6_e33m5")
 
-[node name="TopBorder" type="Sprite2D" parent="BorderOverlay" unique_id=1569434287]
-position = Vector2(516, -75.25)
-scale = Vector2(1, 0.026302079)
+[node name="Cloud5" type="Sprite2D" parent="DynamicForeground" unique_id=1788800821]
+texture = ExtResource("10_8i7qi")
+script = ExtResource("6_e33m5")
 
-[node name="BottomBorder" type="Sprite2D" parent="BorderOverlay" unique_id=172140631]
-position = Vector2(538, 1661.5)
-scale = Vector2(0.98046887, 0.038086057)
-texture = ExtResource("5_3pir3")
+[node name="Cloud6" type="Sprite2D" parent="DynamicForeground" unique_id=1810058408]
+texture = ExtResource("11_2b7fn")
+script = ExtResource("6_e33m5")
 
-[node name="LeftBorder" type="Sprite2D" parent="BorderOverlay" unique_id=1644936709]
-position = Vector2(75, 948.00006)
-scale = Vector2(0.06406249, 0.7328125)
-texture = ExtResource("6_qcbxq")
+[node name="Cloud7" type="Sprite2D" parent="DynamicForeground" unique_id=338895860]
+texture = ExtResource("12_s1yj6")
+script = ExtResource("6_e33m5")
 
-[node name="RightBorder" type="Sprite2D" parent="BorderOverlay" unique_id=337645983]
-position = Vector2(1011.50006, 950)
-scale = Vector2(0.05234382, 0.72669274)
-texture = ExtResource("6_qcbxq")
+[node name="Cloud8" type="Sprite2D" parent="DynamicForeground" unique_id=872575945]
+texture = ExtResource("13_kttcn")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud9" type="Sprite2D" parent="DynamicForeground" unique_id=1958549774]
+texture = ExtResource("14_nm3vm")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud10" type="Sprite2D" parent="DynamicForeground" unique_id=288306123]
+texture = ExtResource("15_8b64a")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud11" type="Sprite2D" parent="DynamicForeground" unique_id=1188794460]
+texture = ExtResource("5_mcfic")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud12" type="Sprite2D" parent="DynamicForeground" unique_id=1744065295]
+texture = ExtResource("7_uxbbn")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud13" type="Sprite2D" parent="DynamicForeground" unique_id=1331638243]
+texture = ExtResource("8_bwt1l")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud14" type="Sprite2D" parent="DynamicForeground" unique_id=1929132194]
+texture = ExtResource("9_wnt3b")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud15" type="Sprite2D" parent="DynamicForeground" unique_id=1830788994]
+texture = ExtResource("10_8i7qi")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud16" type="Sprite2D" parent="DynamicForeground" unique_id=355531012]
+texture = ExtResource("11_2b7fn")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud17" type="Sprite2D" parent="DynamicForeground" unique_id=1146186320]
+texture = ExtResource("12_s1yj6")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud18" type="Sprite2D" parent="DynamicForeground" unique_id=1494313739]
+texture = ExtResource("13_kttcn")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud19" type="Sprite2D" parent="DynamicForeground" unique_id=502085500]
+texture = ExtResource("14_nm3vm")
+script = ExtResource("6_e33m5")
+
+[node name="Cloud20" type="Sprite2D" parent="DynamicForeground" unique_id=454110264]
+texture = ExtResource("15_8b64a")
+script = ExtResource("6_e33m5")
 
 [node name="world guide" type="Line2D" parent="." unique_id=1094007844]
 z_index = 5
 points = PackedVector2Array(108, 276, 974, 276, 974, 1644, 108, 1644, 108, 271)
 default_color = Color(0, 0, 0, 1)
-
-[node name="CloudSpawner" type="Node" parent="." unique_id=1496117116]
-script = ExtResource("7_8qpvf")
-cloud_scene = ExtResource("7_qcbxq")
