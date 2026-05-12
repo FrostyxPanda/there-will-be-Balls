@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://bokg03fgersnl"]
+
+[ext_resource type="Script" uid="uid://beu4rmsa4fhkk" path="res://scenes/game/main_menu.gd" id="1_4oldi"]
+[ext_resource type="Texture2D" uid="uid://db8n6hmoqmfmf" path="res://assets/themes/Beach/Ocean Sunset alt.png" id="1_nsdtn"]
+[ext_resource type="Texture2D" uid="uid://holt6uncngi1" path="res://assets/themes/Beach/clouds/Cloud-2.png" id="2_4oldi"]
+[ext_resource type="Script" uid="uid://dfjfde3o1oquv" path="res://themes/beach/cloud_loop.gd" id="3_73xsm"]
+[ext_resource type="Texture2D" uid="uid://cmxrti3442sch" path="res://assets/themes/Beach/clouds/Cloud-5.png" id="4_21mov"]
+[ext_resource type="Texture2D" uid="uid://s64tp7ga0itp" path="res://assets/themes/Beach/clouds/Cloud-7.png" id="5_ados7"]
+[ext_resource type="Texture2D" uid="uid://cgrqrjmocntyl" path="res://assets/themes/Beach/clouds/Cloud-10.png" id="6_648uh"]
+[ext_resource type="Texture2D" uid="uid://d2xypm0li0m60" path="res://assets/themes/Beach/clouds/Cloud-21.png" id="7_dwvss"]
+[ext_resource type="Texture2D" uid="uid://d0cddwhc80fqj" path="res://assets/themes/Beach/clouds/Cloud-23.png" id="8_yypk0"]
+[ext_resource type="Texture2D" uid="uid://cj14ytb1bwob1" path="res://assets/themes/Beach/clouds/Cloud-25.png" id="9_p78u7"]
+[ext_resource type="Texture2D" uid="uid://sn3f3q6v5bc0" path="res://assets/themes/Beach/clouds/Cloud-27.png" id="10_he4cy"]
+[ext_resource type="Texture2D" uid="uid://wcaj2m3wxnq2" path="res://assets/themes/Beach/clouds/Cloud-31.png" id="11_gmlau"]
+[ext_resource type="Texture2D" uid="uid://bl75y2up3xwiy" path="res://assets/themes/Beach/clouds/Cloud-43.png" id="12_ir8td"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nsdtn"]
+size = Vector2(250, 250)
+
+[sub_resource type="Animation" id="Animation_4oldi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_73xsm"]
+resource_name = "fade_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("Fade:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21mov"]
+_data = {
+&"RESET": SubResource("Animation_4oldi"),
+&"fade_out": SubResource("Animation_73xsm")
+}
+
+[node name="MainMenu" type="Control" unique_id=1599894623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4oldi")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=907222423]
+position = Vector2(-224, 7)
+scale = Vector2(1.4726563, 1.4479166)
+texture = ExtResource("1_nsdtn")
+centered = false
+
+[node name="FullBorder" type="Line2D" parent="." unique_id=1612721121]
+z_index = 10
+position = Vector2(0, 1.1259651)
+scale = Vector2(1, 1.0750643)
+points = PackedVector2Array(0, 0, 1080, 0, 1080, 1920, 534.4563, 1920, 0, 1920, 0, -5)
+default_color = Color(0, 0, 0, 1)
+
+[node name="AnimatedAtmosphere" type="Node2D" parent="." unique_id=518771588]
+
+[node name="Cloud1" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=66361184]
+texture = ExtResource("2_4oldi")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud2" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=1765990082]
+texture = ExtResource("4_21mov")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud3" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=1181376835]
+texture = ExtResource("5_ados7")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud4" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=292092411]
+texture = ExtResource("6_648uh")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud5" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=58627388]
+texture = ExtResource("7_dwvss")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud6" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=119118502]
+texture = ExtResource("8_yypk0")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud7" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=1177946642]
+texture = ExtResource("9_p78u7")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud8" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=1198902437]
+texture = ExtResource("10_he4cy")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud9" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=2113194773]
+texture = ExtResource("11_gmlau")
+script = ExtResource("3_73xsm")
+
+[node name="Cloud10" type="Sprite2D" parent="AnimatedAtmosphere" unique_id=850606658]
+texture = ExtResource("12_ir8td")
+script = ExtResource("3_73xsm")
+
+[node name="UI" type="Control" parent="." unique_id=1638003648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="Control" parent="UI" unique_id=2010246386]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 250.0
+grow_horizontal = 2
+
+[node name="CoinsLabel" type="Label" parent="UI/TopBar" unique_id=1009271636]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 33.0
+offset_right = 992.0
+offset_bottom = 133.0
+theme_override_font_sizes/font_size = 50
+text = "Coins"
+
+[node name="HighScoreContainer" type="Container" parent="UI/TopBar" unique_id=1755608829]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 300.0
+
+[node name="CenterMenu" type="VBoxContainer" parent="UI" unique_id=164659279]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -360.0
+offset_right = 300.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="UI/CenterMenu" unique_id=512369034]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 34
+theme_override_font_sizes/font_size = 100
+text = "Play Game"
+
+[node name="Spacer3" type="Control" parent="UI/CenterMenu" unique_id=1389530641]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CustomizeButton" type="Button" parent="UI/CenterMenu" unique_id=320733610]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 34
+theme_override_font_sizes/font_size = 100
+text = "Customize"
+
+[node name="Spacer2" type="Control" parent="UI/CenterMenu" unique_id=1995419031]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="UI/CenterMenu" unique_id=1774043470]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 34
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+
+[node name="Spacer" type="Control" parent="UI/CenterMenu" unique_id=1533043854]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="UI/CenterMenu" unique_id=509749698]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 34
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+
+[node name="DailyRewardButton" type="Sprite2D" parent="UI" unique_id=691380100]
+position = Vector2(531, 1447)
+texture = SubResource("PlaceholderTexture2D_nsdtn")
+
+[node name="BottomAdContainer" type="Container" parent="UI" unique_id=484572663]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1462401649]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1968764508]
+libraries/ = SubResource("AnimationLibrary_21mov")
+
+[connection signal="pressed" from="UI/CenterMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/CenterMenu/CustomizeButton" to="." method="_on_customize_button_pressed"]
+[connection signal="pressed" from="UI/CenterMenu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/CenterMenu/CreditsButton" to="." method="_on_credits_button_pressed"]

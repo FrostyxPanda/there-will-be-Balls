@@ -93,5 +93,5 @@ func _on_menu_button_pressed():
 	Engine.time_scale = 1.0
 
 	get_tree().change_scene_to_file(
-		"res://scenes/main_menu.tscn"
+		"res://scenes/game/main_menu.tscn"
 	)
